@@ -1,4 +1,5 @@
 import Banner from "./components/Banner"
+import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 import Technologies from "./components/Technologies"
 import type { ITech } from "./types/tech"
@@ -18,6 +19,7 @@ function App() {
       <Navbar></Navbar>
       <Banner></Banner>
       <Technologies dataPromise={dataPromise}></Technologies>
+      <Footer></Footer>
     </>
   )
 }

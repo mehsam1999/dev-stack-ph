@@ -3,7 +3,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
     return (
-        <nav className="sticky top-0 z-50 backdrop-blur-xl border-b border-gray-100">
+        <nav className="sticky top-0 z-50 backdrop-blur-xl border-b border-gray-200">
             <div className="flex justify-between items-center container mx-auto p-4">
 
                 {/* mobile view */}
