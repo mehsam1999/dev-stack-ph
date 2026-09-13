@@ -25,7 +25,7 @@ const Technologies = ({ dataPromise, addToStack, setAddToStack}: ITechnologiesPr
                     </div>
                 </div>
                 <div className="lg:col-span-1">
-                    <YourStack addToStack={addToStack}></YourStack>
+                    <YourStack addToStack={addToStack} setAddToStack={setAddToStack}></YourStack>
                 </div>
             </div>
         </section>

@@ -1,12 +1,23 @@
 import { RxCross1 } from "react-icons/rx";
 import type { ITech } from "../types/tech";
+import type { Dispatch, SetStateAction } from "react";
+import { toast } from "react-toastify";
 
 interface IYourStackProps {
     addToStack: ITech[];
+    setAddToStack:Dispatch<SetStateAction<ITech[]>>
 }
 
-const YourStack = ({ addToStack }: IYourStackProps) => {
-    
+const YourStack = ({addToStack, setAddToStack }: IYourStackProps) => {
+    const handleRemoveStack = (item: ITech) => {
+        const restStack = addToStack.filter((stackItem) => stackItem.id !== item.id);
+        setAddToStack(restStack);
+        toast.info(`${item.name} has been removed!`)
+    }
+    const handleRemoveAll = () => {
+        setAddToStack([]);
+        toast.info("Your Stack is cleared")
+    }
     return (
         <div className="border border-gray-200 rounded-xl p-6">
             <h2 className="text-xl font-bold">Your Stack</h2>
@@ -31,13 +42,13 @@ const YourStack = ({ addToStack }: IYourStackProps) => {
                                                 <p className="text-xs text-gray-500">{item.category}</p>
                                             </div>
                                         </div>
-                                        <button className="text-gray-400 text-2xl"><RxCross1 /></button>
+                                        <button onClick={()=> handleRemoveStack(item)} className="text-gray-400 text-2xl"><RxCross1 /></button>
                                     </div>
                                 ))
                             }
                         </div>
 
-                        <button className="btn btn-outline btn-error w-full mt-8 rounded-xl">Remove All</button>
+                        <button onClick={handleRemoveAll} className="btn btn-outline btn-error w-full mt-8 rounded-xl">Remove All</button>
                     </>
                 )
             }
