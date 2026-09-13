@@ -1,4 +1,4 @@
-import Logo from "../assets/logo-text.png";
+import Logo from "../assets/logo.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
@@ -21,7 +21,10 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <img src={Logo} alt="logo" />
+                <div className="flex items-center justify-between gap-2">
+                    <img src={Logo} alt="logo" />
+                    <p className="text-xl font-extrabold mb-1">Dev <span className="text-secondary text-center">Stack</span></p>
+                </div>
                 <ul className="hidden md:flex items-center gap-4 cursor-pointer font-semibold text-gray-700">
                     <li className="text-secondary">Home</li>
                     <li className="transition-colors duration-200 hover:text-secondary">Technologies</li>

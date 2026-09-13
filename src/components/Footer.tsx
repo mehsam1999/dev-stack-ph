@@ -1,4 +1,4 @@
-import FooterImg from '../assets/logo-text.png'
+import FooterImg from '../assets/logo.png'
 const Footer = () => {
     return (
         <footer className="border-t border-gray-200 mt-10">
@@ -7,6 +7,7 @@ const Footer = () => {
                     <div>
                         <div className="flex items-center gap-2 mb-4">
                             <img src={FooterImg} />
+                            <p className="text-xl font-extrabold mb-1">Dev <span className="text-secondary text-center">Stack</span></p>
                         </div>
                         <p className="text-gray-500">Curated tools, technologies, and resources for developers building modern software.</p>
                         <div className="flex gap-5 mt-5 text-sm text-gray-600">

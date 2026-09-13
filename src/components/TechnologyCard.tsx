@@ -11,7 +11,7 @@ interface ITechnologyCardProps {
 const TechnologyCard = ({ item, addToStack, setAddToStack}: ITechnologyCardProps) => {
     const handleAddToStack = (technology: ITech) => {       
         setAddToStack([...addToStack, technology]);
-        toast.success(`${technology.name} added to your stack!`);
+        toast.success(`${technology.name} has been added to your stack!`);
   }
     const isSelected = addToStack.some((stackItem) => stackItem.id === item.id);
     // console.log(addToStack, "addtosatck")

@@ -1,78 +1,61 @@
-# React + TypeScript + Vite
+## 💻 Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**DevStack**
 
-Currently, two official plugins are available:
+## 🔗 Live Website Link 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+    https://devstack-ph.netlify.app/
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## 📝 Description
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+DevStack is a simple and interactive website that helps developers explore different technologies and build their ideal development stack. Users can browse available technologies, view their details, add their preferred technologies to a personal stack, and easily manage their selections.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Technologies Used
 
-```
+- React
+- TypeScript
+- Tailwind CSS
+- DaisyUI
+- React Icons
+- React Toastify
+
+## ✨ Features
+
+- **Technology Exploration and Selection:** Users can explore different technologies with details such as category, description, difficulty level, rating, icons, and badges. They can add their preferred technologies to build a personalized development stack.
+
+- **Interactive Stack Management:** Users can view their selected technologies in the "Your Stack" section, remove individual technologies, or remove all selected technologies at once. Selected technologies are visually highlighted, and their Add to Stack buttons are automatically disabled to prevent duplicate selections.
+
+- **Responsive UI with User Feedback:** The application provides a responsive interface across different screen sizes and uses toast notifications to give immediate feedback when technologies are added or removed. A loading state is also displayed while technology data is being fetched.
+
+## 📚 React Concepts
+
+### 1. What is JSX, and why is it used in React?
+
+**JSX** is a JavaScript syntax extension that is mostly used in React to specify how the user interface (UI) should appear in a highly visual layout that resembles HTML. It is used in React to make UI components easier to create and understand.
+
+### 2. What is the difference between props and state?
+
+**Props** are used to pass data from a parent component to a child, while **state** stores and manages data that can change inside a component. Props are read only, but state can be updated using functions like `setState`.
+
+### 3. What does the `useState` hook do, and where did you use it in this project?
+
+The **`useState`** hook is used to create and manage changing data in a React component. In this project, I used it in **`App.tsx`** to manage the selected technologies with `addToStack`, and also used `setAddToStack` to add, remove, and remove all technologies from the stack.
+
+### 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
+
+**`useEffect`** is used to perform side effects such as fetching data or interacting with external systems after rendering. However, in this project, **I did not need `useEffect`** because the JSON data is loaded using `fetch()` with React's `use()` and `Suspense`.
+
+### 5. Why does every item in a `.map()` list need a unique `key` prop?
+
+A unique **`key`** helps React identify which list items have changed, been added, or removed. In this project, I used `key={item.id}` because every technology has a unique ID.
+
+### 6. What is conditional rendering? Show one place you used it.
+
+**Conditional rendering** means displaying different UI elements based on a condition. In `YourStack`, I used `addToStack.length === 0` to show **"Your stack is empty."** when no technology is selected.
+
+### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+Data is passed from a parent component to a child component using **props**. A child can send data back by calling a **callback function** received from the parent as a prop, such as `setAddToStack` in this project.  
+
