@@ -1,5 +1,6 @@
 import { type Dispatch, type SetStateAction } from "react";
 import type { ITech } from "../types/tech";
+import { toast } from "react-toastify";
 
 interface ITechnologyCardProps {
     item: ITech;
@@ -8,10 +9,11 @@ interface ITechnologyCardProps {
 }
 
 const TechnologyCard = ({ item, addToStack, setAddToStack}: ITechnologyCardProps) => {
-    const handleAddToStack = (technology: ITech) => {
-    setAddToStack([...addToStack, technology]);
+    const handleAddToStack = (technology: ITech) => {       
+        setAddToStack([...addToStack, technology]);
+        toast.success(`${technology.name} added to your stack!`);
   }
-const isSelected = addToStack.some((stackItem) => stackItem.id === item.id);
+    const isSelected = addToStack.some((stackItem) => stackItem.id === item.id);
     // console.log(addToStack, "addtosatck")
     return (
         <div className={`card bg-base-100 border shadow-sm p-2 ${isSelected ? "border-secondary" : "border-gray-200"}`}>

@@ -4,6 +4,7 @@ import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 import Technologies from "./components/Technologies"
 import type { ITech } from "./types/tech"
+import { ToastContainer } from "react-toastify"
 
 const dataFetch = async () : Promise<ITech[]> =>{
   const res = await fetch('/technologies.json')
@@ -16,6 +17,7 @@ function App() {
   const[addToStack, setAddToStack] = useState<ITech[]>([])
   return (
     <>
+      <ToastContainer></ToastContainer>
       <Navbar></Navbar>
       <Banner></Banner>
       <div className="container mx-auto p-2">
