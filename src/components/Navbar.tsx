@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 const Navbar = () => {
     return (
         <nav className="sticky top-0 z-50 backdrop-blur-xl border-b border-gray-200">
-            <div className="flex justify-between items-center container mx-auto p-4">
+            <div className="flex justify-between items-center container mx-auto py-4 px-2 md:py-6">
 
                 {/* mobile view */}
                 <div className="dropdown dropdown-start md:hidden">

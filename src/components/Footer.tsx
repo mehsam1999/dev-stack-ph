@@ -15,7 +15,7 @@ const Footer = () => {
                             <a href="" className="hover:text-secondary font-bold">LinkedIn</a>
                         </div>
                     </div>
-                    <div className='lg:pl-20'>
+                    <div className='lg:pl-30'>
                         <h3 className="font-bold mb-4">PRODUCT</h3>
                         <ul className="space-y-3 text-sm text-gray-500">
                             <li><a href="" className="hover:text-secondary">Home</a></li>
@@ -23,7 +23,7 @@ const Footer = () => {
                             <li><a href="" className="hover:text-secondary">Projects</a></li>
                         </ul>
                     </div>
-                    <div className='lg:pl-20'>
+                    <div className='lg:pl-30'>
                         <h3 className="font-bold mb-4">COMPANY</h3>
                         <ul className="space-y-3 text-sm text-gray-500">
                             <li><a href="" className="hover:text-secondary">About</a></li>

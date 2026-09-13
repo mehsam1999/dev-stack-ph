@@ -1,12 +1,20 @@
+import { type Dispatch, type SetStateAction } from "react";
 import type { ITech } from "../types/tech";
 
 interface ITechnologyCardProps {
     item: ITech;
+    addToStack: ITech[];
+    setAddToStack:Dispatch<SetStateAction<ITech[]>>
 }
 
-const TechnologyCard = ({ item }: ITechnologyCardProps) => {
+const TechnologyCard = ({ item, addToStack, setAddToStack}: ITechnologyCardProps) => {
+    const handleAddToStack = (technology: ITech) => {
+    setAddToStack([...addToStack, technology]);
+  }
+const isSelected = addToStack.some((stackItem) => stackItem.id === item.id);
+    // console.log(addToStack, "addtosatck")
     return (
-        <div className="card bg-base-100 border border-gray-200 shadow-sm p-2">
+        <div className={`card bg-base-100 border shadow-sm p-2 ${isSelected ? "border-secondary" : "border-gray-200"}`}>
             <div className="card-body p-3">
                 <div className="flex justify-between items-center">
                     <img src={item.icon} alt={item.name} className="w-10 h-10" />
@@ -22,7 +30,7 @@ const TechnologyCard = ({ item }: ITechnologyCardProps) => {
                     <span>⭐ {item.rating}</span>
                 </div>
 
-                <button className="btn btn-sm btn-neutral rounded-lg">Add to Stack</button>
+                <button onClick={()=> handleAddToStack(item)} disabled={isSelected} className="btn btn-sm btn-neutral rounded-lg">{isSelected ? "✓ Added to Stack" : "Add to Stack"}</button>
 
             </div>
         </div>
